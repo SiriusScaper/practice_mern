@@ -1,6 +1,9 @@
 {
   "name": "mern_shopping_list",
   "version": "1.0.0",
+  "engines": {
+    "node": "9.4.0"
+  },
   "description": "Shopping list built with the MERN stack",
   "main": "server.js",
   "scripts": {
@@ -8,7 +11,6 @@
     "start": "node server.js",
     "server": "nodemon server.js",
     "client": "npm start --prefix client",
-    "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && run build --prefix client"
   },
