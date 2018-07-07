@@ -1,4 +1,6 @@
-module.exports = {
-    mongoURI: 'mongodb://siriusscaper:Gr33n310@ds127841.mlab.com:27841/mern_shopping',
-};
+if (process.env.NODE_ENV === 'production') {
+    module.exports = require('./keys_prod')
+} else {
+    module.exports = require('./keys_dev')
+}
 
