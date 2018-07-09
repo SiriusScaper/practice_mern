@@ -8,9 +8,12 @@
   "description": "Shopping list built with the MERN stack",
   "main": "server.js",
   "scripts": {
-    "start": "forever -m 5 bin/www",
-    "heroku-postbuild": "cd client && npm --production=false && npm run build",
-    "dev": "concurrently \"forever -m 5 -w bin/www\" \"cd client && npm start\""
+    "client-install": "npm install --prefix client",
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
   "author": "Ryan Uselmann",
   "license": "MIT",
