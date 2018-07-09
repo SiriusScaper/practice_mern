@@ -8,14 +8,9 @@
   "description": "Shopping list built with the MERN stack",
   "main": "server.js",
   "scripts": {
-    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
-    "start:prod": "node server.js",
-    "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
-    "client": "cd client && npm run start",
-    "seed": "node scripts/seedDB.js",
-    "install": "cd client && npm install",
-    "build": "cd client && npm run build",
-    "heroku-postbuild": "npm run build"
+    "start": "forever -m 5 bin/www",
+    "heroku-postbuild": "cd client && npm --production=false && npm run build",
+    "dev": "concurrently \"forever -m 5 -w bin/www\" \"cd client && npm start\""
   },
   "author": "Ryan Uselmann",
   "license": "MIT",
